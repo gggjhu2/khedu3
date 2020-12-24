@@ -83,6 +83,8 @@ public class Circle extends Shape {
 			System.out.println("중심점이"+ center+ "이고,"
 			+ "반지름이" + r + "인 원을 그리고 있다.");
 			
+			
+			
 		
 		
 }
