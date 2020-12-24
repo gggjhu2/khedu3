@@ -86,8 +86,6 @@ public class PersonMain {
 	
 	public void test4() {
 		
-		String s1 = new String(“1”);
-System.out.println(s1);
 	}
 
 }
