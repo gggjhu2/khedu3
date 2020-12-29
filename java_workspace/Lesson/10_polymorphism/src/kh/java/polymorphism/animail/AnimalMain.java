@@ -20,7 +20,13 @@ public class AnimalMain {
 //		am.test6();
 		
 		//추상 메소드
-		am.test7();
+//		am.test7();
+		
+		//인터페이스 사용
+		
+		am.test8();
+		
+		
 	}
 
 	//
@@ -256,13 +262,77 @@ public class AnimalMain {
 		b.attack();
 		c.attack();
 		
-		
-		
 	
 	}
 
+	
+	
+	//  인터페이스는 객체화 할 수 없다.
+	//  인터페이스는 역시 부모타입으로 다형성을 적용할 수 잇다.
+	//	
+	//
+	//
+	public void test8() {
+		
+//		Runnable r = new Runnable();// 이렇게안된다는것이다.
+		//Cannot instantiate the type Runnable
+		
+		Runnable r1 =new Dog();
+		Runnable r2 =new Cat();
+		
+		r1.run();
+		r2.run();
+		
+		//r1.sat();			// Animal 의 재작성 메소드(오버라이드) say
+		//r1.attack();		// Animal 의 재작성 메소드(오버라이드) attack
+		//r1.kick():		// Dog의 kick	
+		
+		((Dog)r1).say();
+		((Dog)r1).attack();
+		((Dog)r1).kick();
+		
+		System.out.println("===================");
+		//상수
+		
+		System.out.println(Runnable.LEGS);
+		
+		
+		Bitable b1 =new Dog();
+		Bitable b2 =new Cat();
+		b1.bite("멍멍");
+		b2.bite("냐옹옹옹");
+		
+		System.out.println("==================");
+		
+		Dog d1=(Dog)b1;
+		d1.attack();
+		d1.bite("멍멍");
+		d1.kick();
+		d1.attack();
+	
+		System.out.println("================");
+		
+		Animal a1= d1;
 
-
+		a1.attack();
+		a1.say();
+		
+		
+		System.out.println("=========독수리만들기==========");
+		Eagle e1=new Eagle();
+		Flyable e2 =new Eagle();
+		Animal e3 = new Eagle();
+		e2.fly("푸다닥푸다닥납니다");
+		e1.attack();
+		e3.attack();
+		
+		
+	
+	
+	
+	
+	
+	}
 
 
 

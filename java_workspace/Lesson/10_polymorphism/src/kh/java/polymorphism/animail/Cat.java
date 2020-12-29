@@ -1,6 +1,6 @@
 package kh.java.polymorphism.animail;
 
-public class Cat extends Animal{
+public class Cat extends Animal implements Runnable , Bitable{
 
 	
 	public void punch() {
@@ -20,6 +20,16 @@ public class Cat extends Animal{
 	
 	punch();
 }
+	@Override
+	public void run() {
+		
+		System.out.println("냥냥 걷기");
+	}
 	
+	@Override
+	public void bite (String sound) {
+		
+		System.out.println(" 냐용냐옹 웁니다."+sound);
+	}
 	
 }
