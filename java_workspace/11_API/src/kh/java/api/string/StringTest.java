@@ -109,13 +109,24 @@ public class StringTest {
 		
 		
 		//구분자 처리 다른점
+		//1.StringTokenizer  은 빈문자열은 요소로 취급하지않는다.
+		//2.StringTokenizer 구분자문자열을 문자단위로 인식처리
+		//3.split도 정규표현식을 사용하면 문자단위로 처리
 		
-		data ="a,,b,,c,d";
-		arr =data.split(",");
+		
+		data ="a ,b,,c,d";
+		//정규표현식(ragular expression)
+		
+		arr =data.split("[, ]");
+		System.out.println("============");
 		for(String s :arr) {
 			System.out.println("["+s+"]");
 			
+			//',' or '' 두개의 구분자로 인식
+			
+			
 			StringTokenizer tokenizer2 = new StringTokenizer(data,",");
+			
 			while(tokenizer2.hasMoreTokens())
 				System.out.println("<"+tokenizer2.nextToken()+">");
 		}
