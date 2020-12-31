@@ -60,7 +60,7 @@ public class FileRWTest {
 	public void test2() {
 
 		File f = new File("test.txt");
-		File dest =new File("char/test_copy333.txt");
+		File dest =new File("char/test_copy31231333.txt");
 		//BufferedReader br = null;
 		//BufferedReader b = null;
 		
