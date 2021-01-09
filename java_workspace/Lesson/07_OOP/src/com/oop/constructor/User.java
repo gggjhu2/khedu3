@@ -34,16 +34,13 @@ public class User {
 	
 		//
 		//기본 생성자 : 파라미터 없음
-		public User(){	
+	//	public User(){}
+	//		
 			
-			
-			System.out.println("User 객체 생성!");
-			
-			userID ="adc";
-			String user2= userID;
-			
+		public User() {
 			
 		}
+		
 		public User(String userID ,String password) {
 			
 			this.userID=userID;
