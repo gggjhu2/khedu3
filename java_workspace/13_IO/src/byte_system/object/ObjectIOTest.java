@@ -1,4 +1,4 @@
-package byre_system.object;
+package byte_system.object;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

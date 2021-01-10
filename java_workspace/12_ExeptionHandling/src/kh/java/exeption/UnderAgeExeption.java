@@ -7,8 +7,8 @@ package kh.java.exeption;
 	// 커스텀 예외 클래스
 	//	-의미전달을 확실히 할수있도록 함
 	//
-	//	1.checked exeption   :extends exeption
-	//	2.unchecked exeption :extends  RuntimeExeption
+	//	1.checked exeption   :extend exeption           익셉션을 상속하면 예외처리를 강제화할수잇다
+	//	2.unchecked exeption :extends  RuntimeExeption  상속하면 언체크드다.
 	//
 public class UnderAgeExeption extends Exception {
 
@@ -28,9 +28,14 @@ public class UnderAgeExeption extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	//==========================================
+	//우리가 사용하는 부분은 이부분이다.
 	public UnderAgeExeption(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
+   //============================================		
+	
 	}
 									//원인
 	public UnderAgeExeption(Throwable cause) {

@@ -1,4 +1,4 @@
-package byre_system_file.data;
+package byte_system_file.data;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
