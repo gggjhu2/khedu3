@@ -8,6 +8,7 @@ public class ProductMain {
 
 	public static void main(String[] args) {
 		
+		//데스크탑이 퍼블릭이기에 접근가능
 		Desktop d = new Desktop("삼성", "삼성대땅", 1_000_000, 
 								"Windows10", "UHD 커브드", "기계식키보드");
 		System.out.println(d.getDesktopInfo());

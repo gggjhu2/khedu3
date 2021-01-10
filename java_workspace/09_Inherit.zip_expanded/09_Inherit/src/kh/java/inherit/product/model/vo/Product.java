@@ -9,9 +9,10 @@ public class Product {
 	public Product() {
 		
 	}
-	
+					//전달받을 매개변수 들
 	public Product(String brand, String productName, int price) {
 		this.brand = brand;
+	//클래스내의 프라이빗 브랜드//전달받을 부랜드
 		this.productName = productName;
 		this.price = price;
 	}

@@ -59,7 +59,9 @@ public class Circle extends Shape {
 	 */
 	@Override
 	public void draw() {
-		System.out.println("중심점이 " + center + "이고,"
+								//center 는 point 의 x,y를 받고있다.
+								//포인트의 투스트링 오버라이딩을통해서 center의값이 오버라이딩된메소드대로 출력된다.
+		System.out.println("중심점이 " + center+ "이고,"
 						 + "반지름이 " + r + "인 원을 그리고 있다.");
 	}
 	

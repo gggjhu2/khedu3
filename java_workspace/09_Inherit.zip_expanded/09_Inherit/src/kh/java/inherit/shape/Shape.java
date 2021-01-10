@@ -1,5 +1,5 @@
 package kh.java.inherit.shape;
-
+			//도형이라는뜻
 public class Shape {
 
 	private double area;	//넓이

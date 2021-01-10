@@ -14,6 +14,7 @@ public class SmartPhone extends Product {
 		//brand, productName, price 값대입
 		//부모생성자 호출
 		super(brand, productName, price);
+		//세터를 사용하지않고 위의 형태로 바로 사용할수잇다
 		
 		this.os = os;
 		this.carrier = carrier;

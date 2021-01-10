@@ -19,8 +19,6 @@ public class StringTest {
 	//
 	// String 은 immutable (변경불가) 이다.
 	//
-	//
-	//
 	public void test1() {
 		
 		String s1 = "java";
@@ -37,39 +35,29 @@ public class StringTest {
 		System.out.println(s1);
 		s1+=" css";
 		System.out.println(s1);
-		
-			
-			
-		
-		
-		
 	}
 	
-	//
-	//
+	
 	// StringBuilder mutable(변경가능)  =>싱글 스레드용
 	// StringBuffer  mutable(변경가능)  =>멀티쓰레드용 동기화를 지원
-	//
-	
+	//											동기화는 순서를 정해서 딱맞게충돌나지않게만들어주는것
 	public void test2() {
 		StringBuilder sb =new StringBuilder("java");
 		System.out.println(sb.hashCode());
 		System.out.println(sb);
+		//문자열을더해주는메서드
 		sb.append(" oracle");
 		System.out.println(sb.hashCode());
 		System.out.println(sb);
 		
-//		System.out.println(sb);
-//		print(sb.toString());
-//		
-//		
-//		public void print(String s) {
-//			
-//			System.out.println(s);
-//		}
-//	}   //여기너무빨리지나가서 못했음 안됨 에러남
-	}
+		print(sb.toString());
+		
+	} 
+		public void print(String s) {
+			System.out.println(s);
+		}
 	
+		
 	//
 	//	CSV 데이터 처리하기
 	//  Comma Seperated Value
@@ -85,7 +73,7 @@ public class StringTest {
 	//
 	public void test3() {
 		String data = "java §oracle §html § spring § maven§ hk/java/html";
-				
+
 			//1.split
 				String[] arr =data.split("§");
 		for(String s :arr) {
@@ -93,45 +81,50 @@ public class StringTest {
 		
 			System.out.println("["+s+"]");
 		
-			//2.StringTokenizer tokenizer
+		System.out.println("====스플릿 끗=====");	
 			
+			//2.StringTokenizer tokenizer
+																//구분자
 			StringTokenizer tokenizer =new StringTokenizer(data,"§");
 			
 		
+			System.out.println(tokenizer.countTokens());
 			while(tokenizer.hasMoreTokens()) {
-				System.out.println(tokenizer.countTokens());
-				String s2 =tokenizer.nextToken();
-				System.out.println("<"+s2+">");
+				String s3 =tokenizer.nextToken();
+				System.out.println("<"+s3+">");
 			}
 			System.out.println(tokenizer.countTokens());
 		
-		}
-		
-		
+			System.out.println("=====토커나이저 끝========");
 		//구분자 처리 다른점
 		//1.StringTokenizer  은 빈문자열은 요소로 취급하지않는다.
 		//2.StringTokenizer 구분자문자열을 문자단위로 인식처리
 		//3.split도 정규표현식을 사용하면 문자단위로 처리
 		
 		
-		data ="a ,b,,c,d";
 		//정규표현식(ragular expression)
-		
-		arr =data.split("[, ]");
+		String[] arr2 =data.split("§");
+
+		//스트링 토커나이저 예시1
+		data ="a ,b,,c,d";
+		arr2 =data.split("[, ]");
 		System.out.println("============");
-		for(String s :arr) {
-			System.out.println("["+s+"]");
+		for(String s2 :arr2) {
+			System.out.println("["+s2+"]");
+		}			
+			System.out.println("토커나이저 스트링 예시1끗");
 			
 			//',' or '' 두개의 구분자로 인식
 			
-			
-			StringTokenizer tokenizer2 = new StringTokenizer(data,",");
-			
-			while(tokenizer2.hasMoreTokens())
-				System.out.println("<"+tokenizer2.nextToken()+">");
-		}
-		
-		
-	}
+			//스트링 토커나이저 예시2
+		tokenizer = new StringTokenizer(data,",");
+		while(tokenizer.hasMoreTokens())
+			System.out.println("<"+tokenizer.nextToken()+">");
 	
-}
+		}
+		System.out.println("토커나이저 스트링 예시2끗");
+		}
+	}
+
+		
+

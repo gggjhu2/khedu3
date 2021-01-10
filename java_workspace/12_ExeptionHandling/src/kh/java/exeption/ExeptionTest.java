@@ -1,5 +1,6 @@
 package kh.java.exeption;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -25,14 +26,20 @@ public class ExeptionTest {
 //		et.test2();
 //		et.test3();
 //		et.test4();
+		et.test5();
+		//테스트 6에서 파일낫파운드익셉션 오류를 던졌기떄문에 여기서 예외처리를하거나또 던지는방법이있다.
+		//et.test6();
+		
+		
 		try {
-			et.test5();
+			et.test6();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		System.out.println("===정상종료되었습니다====");
+	
+		
 	}
-
 	//
 	// try 절
 	// catch 절
@@ -43,9 +50,12 @@ public class ExeptionTest {
 
 		// String s =null;
 		// System.out.println(s.length());
+		//아무런 빨간 에러가뜨진않았지만 널포인트 익셉션이뜬다.
 		// 컴파일은 정상작동 빨간줄이안떳다.
 		// Exception in thread "main" java.lang.NullPointerException
-
+		//예외가발생해서 메인메서드의 프로그램종료에도달하지않고 프로그램이다운된다.
+		
+		
 		// Scanner sc =new Scanner(System.in);
 		// System.out.println("정수입력:");
 		// int num =sc.nextInt();
@@ -58,18 +68,30 @@ public class ExeptionTest {
 
 		// 예외처리
 		try {
+			//예외가 발생할수있는 코드작성
 			String s = null;
-			System.out.println(s.length());
+//			System.out.println(s.length());
 			Scanner sc = new Scanner(System.in);
 			System.out.println("정수입력:");
 			int num = sc.nextInt();
 			// 예외가 발생할수있는 코드를 작성
 			System.out.println(num / 0);
-
+		}catch(NullPointerException e) {
+			
+			System.out.println("널포익 발생!");
+		e.printStackTrace(); //예외가 발생했을떄의 콜스택의 상황출력
+		 //예외가발생했을때 출려글하고 종료를하는것이다.
 		} catch (InputMismatchException e) {
-
+			e.printStackTrace();
 			System.out.println("정확한 입력값을 기입하시오");
+		}catch (RuntimeException e) {
+			
+			e.printStackTrace();
 		}
+		
+		
+		
+	}
 //	}catch(ArithmeticException e) {
 //		
 //		System.out.println("숫자를 0으로 나눌수없습니다.");
@@ -83,11 +105,6 @@ public class ExeptionTest {
 //	}
 //	
 		// catch 절에도 다형성이 적용되기떄문이다.
-		catch (RuntimeException e) {
-
-			e.printStackTrace();
-		}
-	}
 
 	// 처리순서
 	//
@@ -99,33 +116,32 @@ public class ExeptionTest {
 	public void test2() {
 		System.out.println(1);
 		try {
+			
 			System.out.println(2);
-			if (true)
-				return;
-
-			int[] arr = new int[3];
-			System.out.println(arr[5]);
-			// java.lang.ArrayIndexOutOfBoundsException: 3
-			// 배열 크기를 넘어섯다.
-
-			System.out.println(3);
-
-		} catch (Exception e) {
-
+			//if(true) {
+				//return;
+				//조기리턴식을만나도 finally절은 무조건실행된다.
+			//}
+	
+			int[] arr =new int[3];
+			System.out.println(arr[4]);
+			//java.lang.ArrayindexOutOfBoundsException :4
+				System.out.println(3);
+		}catch (Exception e) {
+			
 			e.printStackTrace();
 			System.out.println(4);
-
-		} finally {
-
-			System.out.println(5);
-		}
-		System.out.println(6);
+		}finally {
+			
+		System.out.println(5);
 	}
-
+	System.out.println(6);		
+	}
+	
+	
+	
 	//
-	// 사용자의 임력에 대해 예외처리하기.
-	//
-	//
+	//사용자의 입력처리에 대해 예외 처리하기
 	//
 	public void test3() {
 
@@ -139,13 +155,16 @@ public class ExeptionTest {
 				// 정수이외의 수를 입력하면 Exception in thread "main" java.util.InputMismatchException
 				// 익셉션이뜬다.
 
-				// 정상 입력한 경우
+				// 정상 입력한 경우 멈추기
 				break;
+				
 			} catch (Exception e) {
-
-			
 				System.out.println("올바른 정수를 입력하세요");
-				sc.next();//사용자의 잘못된 입력값이 남겨진 버퍼비우기용
+				e.printStackTrace();
+			
+				//sc.next();//사용자의 잘못된 입력값이 남겨진 버퍼비우기용 버퍼를지우지않으면 밑의 컨티뉴떄문에 무한반복된다.
+				sc.next();
+				//사용자의 잘봇된입력값 버퍼비우기용
 				continue;
 			}
 
@@ -204,7 +223,7 @@ public class ExeptionTest {
 	//  2.throws 절 통해 회피
 	//		-복수개의 예외를 던지는게 가능하다.
 	//		-다형성을 적용할 수 잇다.
-	public void test5()throws /*FileNotFoundException*/ IOException{//,를해서 여러개도가능하다.
+	public void test5() {
 		
 //		FileReader fr =new FileReader("text.txt");
 		//Unhandled exception type FileNotFoundException 처음보는 에러문구이다.
@@ -215,22 +234,28 @@ public class ExeptionTest {
 		
 		
 		//1.try ~catch 처리
-//		try {
-//			FileReader fr =new FileReader("test.txt");
-//			System.out.println("파일을 찾았습니다.");
-//		}catch(FileNotFoundException e) {
-//			
-//			e.printStackTrace();
-//			//java.io.FileNotFoundException: text.txt (지정된 파일을 찾을 수 없습니다)
-//			//파일을못찾겠다는 오류발생
-//		}
-//		
-		//2.throws 를 통해 예외 회피
+		try {
+			FileReader fr =new FileReader("test.txt");
+			System.out.println("파일을 찾았습니다.");
+		}catch(FileNotFoundException e) {
+			
+			e.printStackTrace();
+			//java.io.FileNotFoundException: text.txt (지정된 파일을 찾을 수 없습니다)
+			//파일을못찾겠다는 오류발생
+			System.out.println("파일을 찾지못했습니다");
+		}
+		
+	}							//그러나 io익셉션이 상위이기에 하나만던져주어도된다
+	public void test6()throws /*FileNotFoundException*/ IOException{//,를해서 여러개도가능하다.
+		
+			//2.throws 를 통해 예외 회피
 			FileReader fr =new FileReader("test.txt");
 			System.out.println("파일을 찾았습니다.");
 			//java.io.FileNotFoundException: text.txt (지정된 파일을 찾을 수 없습니다)
 			//파일을못찾겠다는 오류발생
 		}
-		
+	
+
+
 }
 

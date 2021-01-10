@@ -65,7 +65,9 @@ public class WrapperClassTest {
 		
 		
 		//기본형이 아닌 참조형만 써야하는경우.
+		
 		//List<int> list = new ArrayList<>();//기본형은안된다.
+			// <  >  이부분을 제네릭스라고한다 
 		List<Integer> list = new ArrayList<>();//가능
 		
 		

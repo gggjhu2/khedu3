@@ -25,9 +25,11 @@ public class ErrorTest {
 	public void test1() {
 		
 		long[] arr =new long[Integer.MAX_VALUE];
+		//힙공간에 8바이트씩 배열을 21억개만들려니 버츄얼머신의 힙공간한계를넘어서서 생기는에러이다
 		//Exception in thread "main" java.lang.OutOfMemoryError:
 		//Requested array size exceeds VM limit
-
+		//오류가발생하여 이이상 프로그램이 진행안되고 바로 종료된다.
+		
 		
 		
 	}

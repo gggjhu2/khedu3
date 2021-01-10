@@ -22,8 +22,10 @@ public class Desktop extends Product {
 //		this.brand = brand;
 //		this.productName = productName;
 //		this.price = price;
+		//상속은되지만 직접접근할수없다.
 		
 		//상속받은 public메소드는 현재객체 소속인것처럼 사용가능
+		//프로덕트의 필드이기때문에 세터를이용해서 우회적으로 값을 넣을수있다.
 		this.setBrand(brand);
 		this.setProductName(productName);
 		this.setPrice(price);
@@ -61,9 +63,12 @@ public class Desktop extends Product {
 	public String getDesktopInfo() {
 //		return getBrand() + ", " + getProductName() + ", " + getPrice() + ", "
 //			 + os + ", " + monitor + ", " + keyboard;
+		//부모클래스 의 프라이빗 필드는 직접접근이안되기떄문에 게터를이용해 전달받을수있다
 		
 		return getProductInfo() 
 			 + ", " + os + ", " + monitor + ", " + keyboard;
+		
+		//이방식 유념해서 잘알아보자. 
 	}
 	
 	@Override

@@ -24,7 +24,9 @@ public class Point {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
+	//투스트링을 오버라이딩하지안흥면
+	//오브잭트의 투스트링이 그대로 적용되어 좌포값이 실행된다.
+	//그를해결하기위해 투스트링 메소드를 오버라이드해서 수정해사용해준다
 	@Override
 	public String toString() {
 		return "(" + x + ", " + y + ")";
