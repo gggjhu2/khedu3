@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="kh.java.object.array.person.Person" project="08_ObjectArray" 
     file="/08_ObjectArray/src/kh/java/object/array/person/Person.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="127" x="132" y="388"/>    
+    <position height="-1" width="-1" x="238" y="486"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,25 +12,25 @@
   </class>  
   <class id="2" language="java" name="kh.java.object.array.person.PersonManager" project="08_ObjectArray" 
     file="/08_ObjectArray/src/kh/java/object/array/person/PersonManager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="218" x="132" y="177"/>    
+    <position height="-1" width="-1" x="284" y="257"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="kh.java.object.array.person.PersonMain" project="08_ObjectArray" 
-    file="/08_ObjectArray/src/kh/java/object/array/person/PersonMain.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="529" y="460"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="kh.java.object.array.person.PersonMain2" project="08_ObjectArray" 
+  <class id="3" language="java" name="kh.java.object.array.person.PersonMain2" project="08_ObjectArray" 
     file="/08_ObjectArray/src/kh/java/object/array/person/PersonMain2.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="508" y="206"/>    
+    <position height="-1" width="-1" x="533" y="246"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="kh.java.object.array.person.PersonMain" project="08_ObjectArray" 
+    file="/08_ObjectArray/src/kh/java/object/array/person/PersonMain.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="787" y="476"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

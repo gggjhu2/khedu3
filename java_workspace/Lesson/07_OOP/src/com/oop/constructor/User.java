@@ -35,11 +35,12 @@ public class User {
 		//
 		//기본 생성자 : 파라미터 없음
 	//	public User(){}
-	//		
-			
+	//		  //클래스이름과 동일해야한다 앞에 void를 붙이지않는다.
 		public User() {
-			
+			 System.out.println("User 객체생성!");
 		}
+    //기본생성자 객체생성시 마지막에 호출되어 객체 필드 초기화 처리를 담당.		
+		
 		
 		public User(String userID ,String password) {
 			
@@ -47,6 +48,8 @@ public class User {
 			this.password=password;
 			
 		}
+		
+		//유저아이디만 밭는 파라매터 생성자 작성
 		public User(String userID) {
 			
 			this.userID=userID;
@@ -56,7 +59,8 @@ public class User {
 			//
 			//
 			//	this() => 올바른사용법
-			// 다른 생성자를 호출해서 생성자 안의 중복된 코드 제거.
+			// 다른 생성자를 호출해서 생성자 안의 중복된 코드 제거하느것이 가능하다
+			// 딱한번 맨첫줄에서만 호출가능하다
 			//	user() =>X
 			//
 			//	딱한번만 맨 첫줄에서만 호출이 가능하다.
@@ -64,10 +68,11 @@ public class User {
 			//
 		
 		public User(String userId, String password, Date regDate) {
-			this(userId,password);//다른 생성자 호출
-//			this.userID =userId;
-//			this.password=password;
+			this(userId,password);//다른 생성자 호출하여 중복된호출작성을 줄일수잇다
+//			this.userID =userId;	//두줄작성을 위의 한줄작성으로 줄일수있다
+//			this.password=password;	//
 			this.regDate=regDate;
+			
 			
 			
 			

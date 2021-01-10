@@ -5,11 +5,12 @@ package kh.java.object.array.person;
  * VO Value Object class
  * Entity class (database)
  * DO Domain Object class 
- * DTO Data Transfer Object class
+ * DTO Data Transfer Object class =>데이터전송
  * Bean 
  *
  */
 public class Person {
+	
 	final private int num =100;
 	private String name;
 	private int age;
