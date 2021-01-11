@@ -1,9 +1,11 @@
 package kh.java.collection.list;
 
 import java.util.Objects;
-
+					//test6을하기위한 정렬 기능 추가
 public class Student implements Comparable <Student> {
-
+							//인터페이스 comparable
+									//===>컴페어러블안의 compareto 메서드를 완성해서사용한다.
+									//최하단 컴페어투 오버라이드구문삽입 line 92작성
 	private int no;
 	private String name;
 
@@ -45,9 +47,11 @@ public class Student implements Comparable <Student> {
 	// 필드값 no ,name
 	//
 	// equals & hashCode 는동시에 오버라이딩한다.
+	// equals 결과가 true라면 hashcode값도 동일해야한다.(동일한 객체처럼 작동할 수있도록 오버라이딩한다)
+	//
+	//equals에 사용한 필드를 똑같이 이용해서 hashcode를 생성할것.
 	@Override
 	public boolean equals(Object o) {
-		
 		// Student 형변환전 타입 검사
 		if (!(o instanceof Student))
 			return false;
@@ -65,10 +69,14 @@ public class Student implements Comparable <Student> {
 		return true;
 	}
 	
-	//
-	// equals 에 사용한 필드를 똑같이 이용해서 hashcode를 생성할것
-	//
-	//
+	// 필드값이 동일하면 true 가 나올수 있도록 재작성한다.
+		//
+		// 필드값 no ,name
+		//
+		// equals & hashCode 는동시에 오버라이딩한다.
+		// equals 결과가 true라면 hashcode값도 동일해야한다.(동일한 객체처럼 작동할 수있도록 오버라이딩한다)
+		//
+		//equals에 사용한 필드를 똑같이 이용해서 hashcode를 생성할것.
 	@Override
 	public int hashCode() {
 		
@@ -77,10 +85,12 @@ public class Student implements Comparable <Student> {
 		
 	}
 	
+	
 	//학번오름차순
 	//기본정렬
-	//양수 0:자리유지
-	//음수 0:자리바꿈
+	//양수 : 자리유지
+	//0  : 자리유지
+	//음수 :자리바꿈
 	@Override
 	public int compareTo(Student other) {
 		

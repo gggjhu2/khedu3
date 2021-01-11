@@ -27,16 +27,16 @@ public class ArrayListTest {
 		
 		//test0 번을 ArrayLsit 사용버전으로 변경하기
 		//실습문제list만들기 연습
-		at.test3();
+//		at.test3();
 		
-		//list의 추가적인것들 공부하는 메서드
+		//list의 추가적인방식들을 공부하는 메서드
 //		at.test4();
 		
-		//
+		//정렬 을 공부해보는 메서드
 //		at.test5();
 		
-		//
-//		at.test6();
+		//커스텀 클래스 정렬하기 공부 메서드
+		at.test6();
 		
 	}
 
@@ -269,6 +269,13 @@ public class ArrayListTest {
 		// 같은지아닌지를 출력하는 구문  booleadn 값을 반환하여 이경우 true  가발생
 		System.out.println(list.remove(new Student(3, "세종대왕")));
 		//리무브가 true값을 반환하면 삭제하게 되어있다. 그래서여기서도 결국 true반환
+		
+		//해싀 코드가 기본적으로는다르다 그러나 hashcode도 오버라이드 하여 이경우도수정해준다.
+		//Student.java 안에 hashcode 메서드 오버라이딩 수정
+		System.out.println(new Student(3, "세종대왕").hashCode());
+		System.out.println(new Student(3, "세종대왕").hashCode());
+		
+		
 		//  								오브젝트 이퀄즈를 Student.java 클래스에서 오버라이딩해주어서 정상작동한다.
 		System.out.println(list);
 		//=========================이부분 테스트4 번하다 다시와서 강의하는내용===============
@@ -327,74 +334,94 @@ public class ArrayListTest {
 		System.out.println("");
 		
 		
+		//수정 : 해당인덱스의 객체를 제공된 매개인자로 대체  1번자리에있던 2가 888로바뀌었다.
+		System.out.println("=======기존 1번자리의 2를 888로 수정한다.=====");
 		list.set(1, 888);
-
+		System.out.println(list);
+		System.out.println("=======기존 1번자리의 2를 888로 수정한다.=====");
+		System.out.println("");
+		
+		
 		// 다른 Collection 객체 추가
-
+					//어나더라는 객체를 위의 list 에추가해본다.
 		List<Integer> another = new ArrayList<>();
-
 		another.add(7);
 		another.add(8);
 		another.add(9);
+		
+		System.out.println("===기존 list 출력값===\n"+list);
+		System.out.println("=====새로운 another출력값====");
+		System.out.println(another+"\n=====새로운 another출력값====");
+		System.out.println("");
 
-		System.out.println(list);
-		System.out.println(another);
-
+		//list에 another객체를 모두 추가하는 메서드이다 (addAll)
 		list.addAll(another);
+		System.out.println("=====list에 another객체의 요소를 전부추가한값 출력======");
 		System.out.println(list);
-
-		// 매개인자 요소를 포함하고 있는가.(동등객체)
-
+		System.out.println("=====list에 another객체의 요소를 전부추가한값 출력종료======");
+		System.out.println("");
+		
+		// 매개인자 요소를 포함하고 있는가.(동등객체조건이 가춰져야된다,) :boolean 리턴
+		System.out.println("=====contais(9) list안에 9를 포함하는가 트루 폴스 리턴 ======");
 		System.out.println(list.contains(9));
-
+		System.out.println("");
+		
 		// 매개인자 요소가 몇번지에 있는가 :index값을 리턴하는것이 indexof
 		// 9라는 매개인자요소가 몇번지에있니 8번째에있다 출력
-		System.out.println(list.indexOf(9));
+		System.out.println("======indexOf(9) 9가 몇번 인덱스에있는가===========");
+		System.out.println(list.indexOf(9)+"번지 안에있습니다.");
+		System.out.println("");
+		
 		// 없다면 -1 을 뱉어낸다
-		System.out.println(list.indexOf(900));
-
+		System.out.println("========indexOf(900) 이 몇번에있는가 =>없으므로 -1을 뱉어낸다. ==========");
+		System.out.println("("+list.indexOf(900)+")<==indexOf(900) 괄호안의 숫자(900)가 없을시에 -1을 뱉어냅니다.");
+		System.out.println("");
+		
 		// 모든요소를 열람한다.
 		// 기존포문 포이치문 iterator방식가능
 		// iterator 방식 실습
+								//list를 이터레이터방식으로 만든다
 		Iterator<Integer> iter = list.iterator();
+		System.out.println("====iterator 방식을 시험해봅니다 ========================");
+		System.out.print("iterator의 결과==>   ");
 		while (iter.hasNext()) {
-
+				//있으면 true 없으면 false
 			Integer i = iter.next();
 			System.out.print(i + " / ");
-
 		}
-		System.out.println();
-		// 모든요소 삭제
-
-		list.clear();
-
-		// 리스트가 비어있는가?
-		// 비어있으면 트루
+		System.out.println("");
+		
+		//리스트가 비어있는가?
+		System.out.println("");
+		System.out.println("=====list.isEmpty() 리스트안의 요소가비어있는가를 질문하는 메서드 (반환값은불리언)========");
 		System.out.println(list.isEmpty());
+		System.out.println("");
+		
+		// 모든요소 삭제
+		System.out.println("=========모든 요소를 삭제해본다 list.clear() ========");
+		list.clear();
+		System.out.println("삭제완료");
+		System.out.println("========모든요소 삭제후 isEmpty()를통해 비어있는지를 확인해보자======");
+		System.out.println(list.isEmpty()+"<======모두비어져있다는 뜻");
+		System.out.println("");
+		   System.out.println("===========test4 부가기능들 공부 끗=======================");
 
 	}
 
 	
-	//
+	
 	//	정렬 관련 메소드 (list)
 	//		두가지 방식의 정렬 규격이있따.
 	//	 
-	//	 
-	//	 1. Comparable 이너페이스
+	//	 1. Comparable 인터페이스
 	//		-기본정렬(한가지) 클래스에서 구현. CompareTo메소드 오버라이딩
-	//		 
-	//
 	//	 2. Comparator 인터페이스
 	//		-기본정렬외에 추가적으로 정렬기준을 제시해야할때.
 	//			별도의 컴페어러터 구현 클래스를 작성한다. =>갯수제한 X
 	//			내부적으로 Compare 메소드 오버라이딩하게된다.
-	//
 	private void test5() {
-
 		//리스트에는 정렬이중요하다 이유는 리스트만 정렬 기능이가능하다. 제일중요한기능
 		List<String> list =new ArrayList<>();
-		
-		
 		list.add("허허허");
 		list.add("가버려");
 		list.add("다나가");
@@ -406,38 +433,47 @@ public class ArrayListTest {
 		list.add("4");
 		list.add("6");
 		list.add("2");
+
+		System.out.println("=====기본정렬없이 그냥 출력해본다===================================");
+		System.out.println(list);
+		System.out.println("");
+		
 		
 		//정렬 메소드 호출
-		
+		System.out.println("======Collections.sort 를이용하여 사전등재순에따라 기본정렬을할수잇다=========");
 		Collections.sort(list);//기본 정렬 기준에 따라 정렬
 								//사전등재순 가나다순 abc순...
-	   System.out.println(list);
-	   
-	   //사전 등재 역순 :별도의 정렬 기준객체를 만들어줘야한다.
-	   
-	   Comparator<String>comp =Collections.reverseOrder();
-	   
-	   Collections.sort(list,comp);
-	   System.out.println(list);
+		System.out.println(list);
+		System.out.println("");
 		
+		
+		//사전 등재 역순 :별도의 정렬 기준객체를 만들어줘야한다.
+		Comparator<String>comp =Collections.reverseOrder();
+								//컬랙션의 기본 뒤집 기능 reversOder()
+		//컬랙션의 기본 뒤집 기능 reversOder()의 기능을갖는 comp를 참조해서 list를 렬하라는 뜻
+		System.out.println("======위에 올바르게 정렬된 list를 다시 뒤집어서 역순으로 출력해본다.======");
+		Collections.sort(list,comp);
+	   System.out.println(list);
+	   System.out.println("===========test5정렬공부 메서드 끗=======================");
 	}
+
 	
-	//
+	
 	// 커스텀 클래스 정렬하기
-	//
 	//
 	public void test6() {
 		
 		List<Student> list = new ArrayList<>();
 		
-		list.add(new Student(2, "홍길동2"));
-		list.add(new Student(1, "강길동1"));
-		list.add(new Student(5, "낭길동5"));
-		list.add(new Student(4, "당길동4"));
-		list.add(new Student(3, "랄길동3"));
-		
-		
+		list.add(new Student(3, "세종대왕"));
+		list.add(new Student(2, "신사임당"));
+		list.add(new Student(5, "이황"));
+		list.add(new Student(4, "장영실"));
+		list.add(new Student(1, "홍길동"));
+		System.out.println("===========================정렬안된 리스트 그대로 출력하기============================");
 		System.out.println(list);
+		System.out.println("");
+		
 		
 		//정렬 기본정렬
 		//1. 학번오름차순
@@ -445,37 +481,40 @@ public class ArrayListTest {
 //The method sort(List<T>) in the type Collections is not
 //		applicable for the arguments (List<Student>)	
 		//정렬기준이없어서 오류가난다.
+		//====>sTUDENT가 기본정렬 기능을가지고있지않기떄문에 오류가난다 해당부분을 수정해주기위해 Student.java파일의 클래스명을 수정해준다
 		
-		System.out.println("==학번 오름차순-=");
+		System.out.println("======================================학번 오름차순-=======================");
 		Collections.sort(list);
 		System.out.println(list);
 		list.sort(null);
-		//기본 정렬인 경우 Comparator 객체 필요치 않다.
+		//기본 정렬인 경우 Comparator 객체 필요치 않게됬다.
 		System.out.println(list);
+		System.out.println("");
 		
 		//학번 내림차순
-		System.out.println("--학번 내림차순--");
+		System.out.println("==================================--학번 내림차순-========================-");
 		Collections.sort(list,Collections.reverseOrder());
+		System.out.println(list);
+		System.out.println("");
+		
 		
 		//커스텀 정렬을 하고싶다. 의경우 예제
 		//추가적인 정렬기준 생성하기
-		
 		//1.이름 오름차순차순
-		System.out.println("이름오름차순=======");
+		System.out.println("================================이름오름차순 가나다순=============================");
 		Comparator<Student> comp =new StudentNameAscending();
-		
+										//해당 클래스 직접 만들어준다 =>컴페어러터 구현채만들기다
 		Collections.sort(list,comp);
-		
 		System.out.println(list);
-		
+		System.out.println("");
 		//2. 이름 내림차순
-		System.out.println("이름 내림차순=========");
+		System.out.println("==============================이름 내림차순 가나다 역순=========");
 		Comparator<Student> comp2 =new StudentNameAscending().reversed();
 		
 		Collections.sort(list,comp2);
-		
 		System.out.println(list);
-		
+		System.out.println("");
+		System.out.println("================================정렬메서드 사용 test6메서드 종료==================================");
 		
 	}
 	
