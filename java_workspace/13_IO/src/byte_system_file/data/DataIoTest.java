@@ -11,7 +11,10 @@ public class DataIoTest {
 	public static void main(String[] args) {
 
 		DataIoTest d = new DataIoTest();
-		// d.test1();
+		//파일작성 과정메서드 
+//		d.test1();
+		 
+		//읽어오는 과정 메서드
 		d.test2();
 
 	}
@@ -23,7 +26,9 @@ public class DataIoTest {
 
 		File f = new File("data/sample.dat");
 
-		try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(f));) {
+		try (	//try(     내용에 한번에넣어서 예외처리와 종료를 간소화한다.)
+				DataOutputStream dos = new DataOutputStream(new FileOutputStream(f));
+				) {
 
 			// 자바 자료형별로 작성 가능
 			dos.writeBoolean(true);
@@ -52,6 +57,7 @@ public class DataIoTest {
 			System.out.println(dis.readChar());
 			System.out.println(dis.readChar());
 			System.out.println(dis.readUTF());
+//			dis.readChars(String);//2byte 식대로나열
 		} catch (Exception e) {
 
 			e.printStackTrace();

@@ -9,7 +9,6 @@ public class Student implements Comparable <Student> {
 
 	public Student() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Student(int no, String name) {
@@ -39,27 +38,28 @@ public class Student implements Comparable <Student> {
 		return "Student [no=" + no + ", name=" + name + "]";
 	}
 
-	//
+	
+	
 	// 필드값이 동일하면 true 가 나올수 있도록 재작성한다.
 	//
 	// 필드값 no ,name
 	//
 	// equals & hashCode 는동시에 오버라이딩한다.
-	//
-	//
 	@Override
-
 	public boolean equals(Object o) {
+		
 		// Student 형변환전 타입 검사
 		if (!(o instanceof Student))
 			return false;
 
 		Student other = (Student) o;
-
+		//현재 no     other.no
 		if (no != other.no)
 			return false;
 
-		if (!name.equals(other.name))
+//		if (!name.equals(other.name))
+//			return false;
+		if(name !=other.name)
 			return false;
 
 		return true;

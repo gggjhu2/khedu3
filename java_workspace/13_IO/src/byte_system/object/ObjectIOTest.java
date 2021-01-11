@@ -27,9 +27,9 @@ public class ObjectIOTest {
 		try (ObjectOutputStream oos = new ObjectOutputStream(
 				new BufferedOutputStream(new FileOutputStream(f)));) {
 
-			User u1 = new User("hot1", "1234", "dsadasd1", 15, Calendar.getInstance());
-			User u2 = new User("hot2", "1234", "dsadasd2", 15, Calendar.getInstance());
-			User u3 = new User("hot3", "1234", "dsadasd3", 15, Calendar.getInstance());
+			User u1 = new User("honggd", 1234, "홍길동", 15, Calendar.getInstance());
+			User u2 = new User("sinsa", 1234, "신사임당", 15, Calendar.getInstance());
+			User u3 = new User("sejong", 1234, "세종대웡", 15, Calendar.getInstance());
 
 			oos.writeObject(u1);
 			oos.writeObject(u2);
@@ -42,6 +42,8 @@ public class ObjectIOTest {
 		}
 	}
 
+	
+	//읽기 메서드
 	public void test2() {
 		File f = new File("object/user.ser");
 

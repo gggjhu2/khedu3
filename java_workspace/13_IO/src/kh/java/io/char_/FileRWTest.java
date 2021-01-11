@@ -12,8 +12,8 @@ public class FileRWTest {
 	public static void main(String[] args) {
 
 		FileRWTest f = new FileRWTest();
-//		 f.test1();
-		f.test2();
+		 f.test1();
+//		f.test2();
 
 	}
 
@@ -35,9 +35,8 @@ public class FileRWTest {
 		
 		//버퍼드리더와달리 이방식은 한글자씩 불러오는것이라 깨지지않는다.
 		//즉 , 텍스트 파일을 읽어오는용도에 특화되어있는 스트림이다.
-		File f = new File("test.txt");
+		File f = new File("te2222st.txt");
 		FileReader fr = null;
-
 		try {
 
 			fr = new FileReader(f);
@@ -47,22 +46,16 @@ public class FileRWTest {
 			while ((data = fr.read()) != -1) {
 				System.out.print((char) data +":");
 			}
-
 		} catch (Exception e) {
-
 			e.printStackTrace();
 		} finally {
-
 			try {
 				fr.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
-
 	}
-
 	
 	
 	//=====================================메서드2===========================
@@ -90,7 +83,7 @@ public class FileRWTest {
 				
 				
 				//br.readLine 이읽어온 문자는 개행문자가없다.
-				bw.write(data + "\n");
+				bw.write(data );
 							//그래서 \n을 붙여서 개행을 직접넣어준다
 				
 				

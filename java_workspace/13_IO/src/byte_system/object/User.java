@@ -24,14 +24,14 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String id ;
 	//객체 입출력 스트림에서 해당값을 전송하지않는다.  transient
-	private transient String password ;
+	private transient/*전송되어서는안되는 값일경우 붙여준다*/ int password ;
 	private String name;
 	private int age ;
 	private Calendar regDate ;
 	
 	
 	
-	public User(String id, String password, String name, int age, Calendar regDate) {
+	public User(String id, int password, String name, int age, Calendar regDate) {
 		super();
 		this.id = id;
 		this.password = password;
@@ -41,7 +41,6 @@ public class User implements Serializable {
 	}
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
@@ -56,10 +55,10 @@ public class User implements Serializable {
 		public void setId(String id) {
 			this.id = id;
 		}
-		public String getPassword() {
+		public int getPassword() {
 			return password;
 		}
-		public void setPassword(String password) {
+		public void setPassword(int password) {
 			this.password = password;
 		}
 		public String getName() {
