@@ -32,11 +32,14 @@ public class HashSetTest {
 //		hs.test2();
 		
 		//중복제거관련해서 추가적으로연습을해보는 메서드이다. (커스텀클래스 처리)
-		hs.test3();
+//		hs.test3();
 		
-		
+		//lenkedhash set =중복허용안함
+		//treeset 		==오름차순정렬 중복허용안함
 //		hs.test4();
-//		hs.test5();
+		
+		//실습문제 로또숫자 출력하기 1~45 사이의 중복없는 난수 6개를 오름차순정렬해서 출력하세요.
+		hs.test5();
 		
 		
 	}
@@ -214,22 +217,27 @@ public class HashSetTest {
 	public void test4() {
 		
 		Set <Integer> set1 =new LinkedHashSet<>();
-		
 		set1.add(34);
 		set1.add(25);
 		set1.add(100);
 		set1.add(1);
 		set1.add(34);
 		//저장한 순서 그대로유지되나 인덱스접근은 여전히안된다.
+		System.out.println("====se1에 임의의 숫자저장 인덱스접근불가=====");
 		System.out.println(set1);
+		System.out.println("");
+		
 		
 										//요소 입력대신 set1을 그대로 사용한다.
 		Set <Integer> set2 = new TreeSet<>(set1);
 		//정렬이 필요하여 트리셋을 이용하였다 (오름차순정렬지원)
+		System.out.println("========treeset 으로정렬을 해보았다.========");
 		System.out.println(set2);
-		
+		System.out.println("=======treeset은 오름차순 정렬을 지원한다.======");
 	}
 
+	
+	
 	//@실습문제
 	//
 	//	로또 숫자 출력하기
@@ -238,6 +246,7 @@ public class HashSetTest {
 	public void test5() {
 		
 		Set<Integer> set = new TreeSet<>();
+		System.out.println("==========학생들 푼거 참조한 방식======");
 		while(true) {
 			int num = (int)(Math.random()*45) + 1;
 			set.add(num);
@@ -246,6 +255,15 @@ public class HashSetTest {
 			}
 		}
 		System.out.println(set);
+		System.out.println("");
+		
+		
+		System.out.println("========선생님 코드=========");
+		Set<Integer> lotto = new TreeSet<>();
+
+		while(lotto.size()<6)
+			lotto.add((int)(Math.random()*45)+1);
+			System.out.println(lotto);
 	}
 
 		
