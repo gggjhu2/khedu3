@@ -36,7 +36,11 @@ public class ArrayListTest {
 //		at.test5();
 		
 		//커스텀 클래스 정렬하기 공부 메서드
-		at.test6();
+//		at.test6();
+		
+		//20강쓰레드 시작전 다시 돌아와서 공부한 부분
+		//concurrentModificationException
+		at.test7();
 		
 	}
 
@@ -518,6 +522,52 @@ public class ArrayListTest {
 		
 	}
 	
-	
+	//concurrentModificationException 동시적 수정예외
+	public void test7() {
+		
+	List<Student> list = new ArrayList<>();
+		
+		list.add(new Student(3, "세종대왕"));
+		list.add(new Student(2, "신사임당"));
+		list.add(new Student(5, "이황"));
+		list.add(new Student(4, "장영실"));
+		list.add(new Student(1, "홍길동"));
+		System.out.println("===========================정렬안된 리스트 그대로 출력하기============================");
+		System.out.println(list);
+		System.out.println("");
+
+//		System.out.println("======forEach문으로 리스트를 출력해본다======================");
+			//5번학생을지우고싶은상황인데 아래와같이는 할수없다.  ==>5번 학생의 인덱스를 알아내면 과정해결가능하다.
+//	//		for(Student s:list) {
+//			if(s.getNo()==5)
+//			System.out.println(s);
+//			//이렇게하면 에러가난다
+//			//java.util.ConcurrentModificationException
+//			//이유는 리스트를 전체적으로 순회하고있는데 리스트값을변경하면 에러가발생한다.  이렇게 할순없다.
+//			list.remove(s);
+//		}
+		
+		//5번학생 제거
+//		int idx =-1;
+//		for(Student s :list) {
+//			if(s.getNo()==5)
+//				idx=list.indexOf(s);
+//		}
+//		System.out.println("5번학생의 인덱스는 :"+idx+" 입니다.");
+			//===>위해당구문을 일반포문으로 바꿔본다. =>이유는 일반포문이더 깔끔하고직관적이다.
+		System.out.println("===========5번학생의 인덱스를 찾아본다===========");
+		int idx =-1;
+		for(int i =0 ; i<list.size();i++) {
+			if(list.get(i).getNo()==5)
+				idx=i;
+		}
+			System.out.println("5번학생의 인덱스는 :"+idx+" 번 입니다.");
+			System.out.println("5번학생 이황을 삭제했습니다.");
+			list.remove(idx);
+			System.out.println("======5번학생 삭제후 리스트출력======");
+			System.out.println(list);
+	}
+
+
 
 }
