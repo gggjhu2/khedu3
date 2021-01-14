@@ -1,7 +1,5 @@
 package simp.java.music.vo;
 
-import java.time.LocalDate;
-
 public class Music {
 	private String musicName;
 	private String musicSinger;
@@ -61,8 +59,8 @@ public class Music {
 
 	@Override
 	public String toString() {
-		return "Music [musicName=" + musicName + ", musicSinger=" + musicSinger + ", genre=" + genre + ", playTime="
-				+ playTime + ", releaseYear=" + releaseYear + "]";
+		return 	musicName + "\t" + musicSinger + "\t" + genre + "\t"
+				+ playTime + "\t" + releaseYear;
 	}
 
 	@Override

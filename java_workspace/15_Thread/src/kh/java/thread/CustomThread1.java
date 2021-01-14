@@ -14,6 +14,7 @@ public class CustomThread1 extends Thread {
 	for(int i =0 ; i <100 ; i++) {
 			System.out.print(ch);
 		}
+	System.out.println("<"+ch+"쓰레드작업끝>");
 	}
 	
 	
